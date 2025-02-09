@@ -1,37 +1,20 @@
-import { Course } from "@/types/courses";
+import { Program } from "../types/programs";
 
-export const programs: Course[] = [
+export const programs: Program[] = [
   {
     name: "Física",
     description:
       "El programa de Física está diseñado para proporcionar a los estudiantes…",
-    rating: 4.6,
+    avg_stars: 4.6,
     image: "/images/program1.png",
-    id: "1",
-  },
-  {
-    name: "Química",
-    description:
-      "El programa de Química está diseñado para proporcionar a los estudiantes…",
-    rating: 4.6,
-    image: "/images/program1.png",
-    id: "2",
-  },
-  {
-    name: "Biología",
-    description:
-      "El programa de Biología está diseñado para proporcionar a los estudiantes…",
-    rating: 4.6,
-    image: "/images/program1.png",
-    id: "3",
-  },
-  {
-    name: "Matemáticas",
-    description:
-      "El programa de Matemáticas está diseñado para proporcionar a los estudiantes…",
-    rating: 4.6,
-    image: "/images/program1.png",
-    id: "4",
+    id: 1,
+    categories: [],
+    duration_years: 5,
+    program_type: {
+      id: 1,
+      name: "Licenciatura",
+    },
+    total_enrollments: 100,
   },
 ];
 
@@ -88,5 +71,20 @@ export const professors = [
     description:
       "PhD en Química Orgánica. Investigador en síntesis de nuevos materiales y procesos industriales.",
     image: "/images/img2.jpg",
+  },
+];
+
+export const slides = [
+  {
+    title: "Descuento de Verano",
+    text: "Aprovecha nuestro descuento especial de verano y obtén hasta un 50% de descuento en productos seleccionados.",
+    imageLeft: "/images/laptop.png",
+    imageRight: "/images/accessory.png",
+  },
+  {
+    title: "Oferta Especial",
+    text: "Consigue productos electrónicos con hasta un 40% de descuento por tiempo limitado.",
+    imageLeft: "/images/laptop.png",
+    imageRight: "/images/accessory.png",
   },
 ];

@@ -22,8 +22,8 @@ const settings = {
       breakpoint: 600,
       settings: {
         slidesToShow: 1,
-        centerMode: true, // Centrar el slide en mobile
-        centerPadding: "0px", // Elimina padding lateral
+        centerMode: true,
+        centerPadding: "0px",
       },
     },
   ],
@@ -58,6 +58,27 @@ const ProfessorCarousel = ({ professors }: Props) => {
           margin: "0 auto 30px",
         }}
       />
+      {professors.length === 0 && (
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "300px",
+            bgcolor: "#f5f5f5",
+            borderRadius: "10px",
+            p: 3,
+          }}
+        >
+          <Typography variant="h6" color="text.secondary" gutterBottom>
+            No hay Profesores disponibles
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Por favor chequea luego.
+          </Typography>
+        </Box>
+      )}
       <Slider {...settings}>
         {professors.map((professor, index) => (
           <Box

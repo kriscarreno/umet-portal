@@ -48,7 +48,14 @@ function NavBarContainer() {
             <Link href={"/login"}>Para alumnos</Link>
             <Link href={"/register"}>Para profesores</Link>
             <Button
-              sx={{ bgcolor: "gold", color: colors.blue, borderRadius: "10px" }}
+              sx={{
+                bgcolor: "gold",
+                color: colors.blue,
+                borderRadius: "10px",
+                "&:hover": {
+                  backgroundColor: "#FFB300",
+                },
+              }}
               variant="contained"
               startIcon={
                 <PersonOutlineOutlinedIcon

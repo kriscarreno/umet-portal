@@ -2,11 +2,11 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import CarreersCarousel from "../carreers-section/carreers-carousel";
-import { Course } from "@/types/courses";
+import { Program } from "@/types/programs";
 
-type Props = { courses: Course[] };
+type Props = { programs: Program[] };
 
-function TopProgramsContainer({ courses }: Props) {
+function TopProgramsContainer({ programs }: Props) {
   return (
     <Box
       sx={{
@@ -77,7 +77,7 @@ function TopProgramsContainer({ courses }: Props) {
           position: "relative",
         }}
       >
-        <CarreersCarousel courses={courses} />
+        <CarreersCarousel programs={programs} />
       </Box>
     </Box>
   );

@@ -3,11 +3,11 @@ import React from "react";
 import { Box } from "@mui/material";
 import CategoryCarousel from "./category-carousel";
 import CarreersCarousel from "./carreers-carousel";
-import { Course } from "@/types/courses";
+import { Program } from "@/types/programs";
 
-type Props = { courses: Course[] };
+type Props = { programs: Program[] };
 
-const CarreersSection = ({ courses }: Props) => {
+const CarreersSection = ({ programs }: Props) => {
   return (
     <Box
       sx={{
@@ -50,7 +50,7 @@ const CarreersSection = ({ courses }: Props) => {
           position: "relative",
         }}
       >
-        <CarreersCarousel courses={courses} />
+        <CarreersCarousel programs={programs} />
       </Box>
     </Box>
   );

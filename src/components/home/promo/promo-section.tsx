@@ -4,23 +4,13 @@ import React from "react";
 import Slider from "react-slick";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
+import { Promo } from "@/types/promos";
 
-const slides = [
-  {
-    title: "Descuento de Verano",
-    text: "Aprovecha nuestro descuento especial de verano y obtén hasta un 50% de descuento en productos seleccionados.",
-    imageLeft: "/images/laptop.png",
-    imageRight: "/images/accessory.png",
-  },
-  {
-    title: "Oferta Especial",
-    text: "Consigue productos electrónicos con hasta un 40% de descuento por tiempo limitado.",
-    imageLeft: "/images/laptop.png",
-    imageRight: "/images/accessory.png",
-  },
-];
+type Props = {
+  promos: Promo[];
+};
 
-function PromoSection() {
+function PromoSection({ promos }: Props) {
   const settings = {
     dots: false,
     infinite: true,
@@ -39,7 +29,6 @@ function PromoSection() {
         maxWidth: "1200px",
         margin: "auto",
         overflow: "hidden",
-        mt: { xs: 4, md: 6 },
         p: { xs: 2, md: 0 },
       }}
     >
@@ -50,7 +39,7 @@ function PromoSection() {
         }}
       >
         <Slider {...settings}>
-          {slides.map((slide, index) => (
+          {promos.map((slide, index) => (
             <Box
               key={index}
               sx={{
@@ -74,8 +63,8 @@ function PromoSection() {
                 }}
               >
                 <Image
-                  src={slide.imageLeft}
-                  alt={slide.title}
+                  src={"/images/laptop.png"}
+                  alt={slide.name}
                   style={{
                     maxWidth: "195px",
                     maxHeight: "150px",
@@ -88,9 +77,9 @@ function PromoSection() {
               </Box>
               <Box textAlign="center" sx={{ flex: 1 }}>
                 <Typography variant="h4" fontWeight="bold">
-                  {slide.title}
+                  {slide.name}
                 </Typography>
-                <Typography variant="body1">{slide.text}</Typography>
+                <Typography variant="body1">{slide.description}</Typography>
               </Box>
               <Box
                 sx={{
@@ -98,7 +87,12 @@ function PromoSection() {
                   justifyContent: "flex-end",
                 }}
               >
-                <Image src={slide.imageRight} alt="" width={300} height={85} />
+                <Image
+                  src={"/images/accessory.png"}
+                  alt=""
+                  width={300}
+                  height={85}
+                />
               </Box>
             </Box>
           ))}

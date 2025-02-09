@@ -2,30 +2,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { Box, Typography, Avatar, Card, Rating } from "@mui/material";
-
-const testimonials = [
-  {
-    name: "Luis Fernández",
-    feedback:
-      "El sistema de seguimiento del progreso es muy útil. Me ayuda a mantenerme motivado y enfocado en mis metas.",
-    rating: 4,
-    image: "/images/img2.jpg",
-  },
-  {
-    name: "Laura Hernández",
-    feedback:
-      "La plataforma es muy intuitiva y fácil de usar. La experiencia de aprendizaje es muy satisfactoria.",
-    rating: 5,
-    image: "/images/img2.jpg",
-  },
-  {
-    name: "Elena Vargas",
-    feedback:
-      "El soporte técnico es muy eficiente. Siempre responden rápido y resuelven cualquier inconveniente.",
-    rating: 5,
-    image: "/images/img2.jpg",
-  },
-];
+import { Testimonial } from "@/types/testimonials";
 
 const settings = {
   dots: true,
@@ -52,7 +29,11 @@ const settings = {
   ],
 };
 
-const TestimonialCarousel = () => {
+type Props = {
+  testimonials: Testimonial[];
+};
+
+const TestimonialCarousel = ({ testimonials }: Props) => {
   return (
     <Box
       sx={{
@@ -74,6 +55,27 @@ const TestimonialCarousel = () => {
           margin: "0 auto 30px",
         }}
       />
+      {testimonials.length === 0 && (
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "300px",
+            bgcolor: "#f5f5f5",
+            borderRadius: "10px",
+            p: 3,
+          }}
+        >
+          <Typography variant="h6" color="text.secondary" gutterBottom>
+            No hay testimonios disponibles
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Por favor chequea luego.
+          </Typography>
+        </Box>
+      )}
       <Slider {...settings}>
         {testimonials.map((testimonial, index) => (
           <Box
@@ -101,7 +103,7 @@ const TestimonialCarousel = () => {
               }}
             >
               <Rating
-                value={testimonial.rating}
+                value={testimonial.stars}
                 readOnly
                 size="small"
                 sx={{ mb: 2, color: "gold" }}
@@ -117,16 +119,16 @@ const TestimonialCarousel = () => {
                   WebkitBoxOrient: "vertical",
                 }}
               >
-                {testimonial.feedback}
+                {testimonial.review}
               </Typography>
               <Box sx={{ display: "flex", alignItems: "center", mt: "auto" }}>
                 <Avatar
-                  src={testimonial.image}
-                  alt={testimonial.name}
+                  src={"/images/img2.jpg"}
+                  alt={testimonial.review}
                   sx={{ width: 40, height: 40, mr: 2 }}
                 />
                 <Typography variant="subtitle1" fontWeight="bold">
-                  {testimonial.name}
+                  {testimonial.user_is}
                 </Typography>
               </Box>
             </Card>

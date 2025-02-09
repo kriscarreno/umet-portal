@@ -1,4 +1,4 @@
-import { Course } from "@/types/courses";
+import { Program } from "@/types/programs";
 import { colors } from "@/utils/theme";
 import { AccountCircleOutlined, Verified } from "@mui/icons-material";
 import {
@@ -13,10 +13,10 @@ import React from "react";
 import Slider from "react-slick";
 
 type Props = {
-  courses: Course[];
+  programs: Program[];
 };
 
-function CarreersCarousel({ courses }: Props) {
+function ProgramsCarousel({ programs }: Props) {
   const settings = {
     dots: true,
     arrows: true,
@@ -58,7 +58,7 @@ function CarreersCarousel({ courses }: Props) {
         overflow: "hidden",
       }}
     >
-      {courses.length === 0 && (
+      {programs.length === 0 && (
         <Box
           sx={{
             display: "flex",
@@ -80,7 +80,7 @@ function CarreersCarousel({ courses }: Props) {
         </Box>
       )}
       <Slider {...settings}>
-        {courses.map((program, index) => (
+        {programs.map((program, index) => (
           <Box
             key={index}
             sx={{
@@ -145,18 +145,18 @@ function CarreersCarousel({ courses }: Props) {
                       cursor: "pointer",
                     }}
                   >
-                    Grado
+                    {program.program_type.name}
                   </Typography>
 
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                      4.8
+                      {program.avg_stars}
                     </Typography>
                     <Box component="span" sx={{ color: "gold" }}>
                       ★
                     </Box>
                     <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                      27
+                      {program.total_enrollments}
                     </Typography>
                     <Box
                       component="span"
@@ -185,4 +185,4 @@ function CarreersCarousel({ courses }: Props) {
   );
 }
 
-export default CarreersCarousel;
+export default ProgramsCarousel;
