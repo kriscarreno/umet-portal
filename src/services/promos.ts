@@ -7,10 +7,7 @@ import { buildApiResponseAsync, handleApiServerError } from "@/utils/api";
 export async function getPromos(): Promise<ApiResponse<Promo[]>> {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}promos/`, {
     method: "GET",
-    next: {
-      revalidate: 600,
-      tags: ["promos"],
-    },
+    cache: "no-cache",
   });
 
   if (!res.ok) return handleApiServerError(res);

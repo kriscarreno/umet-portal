@@ -19,7 +19,7 @@ type Props = {
 };
 
 async function HomeContainer({ searchParams }: Props) {
-  const programs = await getPrograms(await searchParams);
+  const programs = await getPrograms(searchParams);
   const programsPopular = await getPrograms(undefined, true);
   const professors = await getProfessors();
   const testimonials = await getTestimonials();

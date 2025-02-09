@@ -20,7 +20,7 @@ function ProgramsCarousel({ programs }: Props) {
   const settings = {
     dots: true,
     arrows: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToScroll: 4,
     slidesToShow: 4,

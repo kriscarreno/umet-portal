@@ -1,8 +1,8 @@
 import HomeContainer from "@/components/home/home-container";
 import { SearchParams } from "@/types/params";
 type Props = {
-  searchParams: SearchParams;
+  searchParams: Promise<SearchParams>;
 };
-export default function Home({ searchParams }: Props) {
-  return <HomeContainer searchParams={searchParams} />;
+export default async function Home({ searchParams }: Props) {
+  return <HomeContainer searchParams={await searchParams} />;
 }

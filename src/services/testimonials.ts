@@ -7,10 +7,7 @@ import { buildApiResponseAsync, handleApiServerError } from "@/utils/api";
 export async function getTestimonials(): Promise<ApiResponse<Testimonial[]>> {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}qualifications/`, {
     method: "GET",
-    next: {
-      revalidate: 600,
-      tags: ["qualifications"],
-    },
+    cache: "no-cache",
   });
 
   if (!res.ok) return handleApiServerError(res);

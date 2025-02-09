@@ -1,3 +1,5 @@
-export type SearchParams = {
-  categoryId: string;
+import { PageProps } from "../../.next/types/app/page";
+
+export type SearchParams = PageProps & {
+  categoryId?: string;
 };
