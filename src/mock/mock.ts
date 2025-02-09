@@ -76,14 +76,16 @@ export const professors = [
 
 export const slides = [
   {
-    title: "Descuento de Verano",
-    text: "Aprovecha nuestro descuento especial de verano y obtén hasta un 50% de descuento en productos seleccionados.",
+    name: "Descuento de Verano",
+    description:
+      "Aprovecha nuestro descuento especial de verano y obtén hasta un 50% de descuento en productos seleccionados.",
     imageLeft: "/images/laptop.png",
     imageRight: "/images/accessory.png",
   },
   {
-    title: "Oferta Especial",
-    text: "Consigue productos electrónicos con hasta un 40% de descuento por tiempo limitado.",
+    name: "Oferta Especial",
+    description:
+      "Consigue productos electrónicos con hasta un 40% de descuento por tiempo limitado.",
     imageLeft: "/images/laptop.png",
     imageRight: "/images/accessory.png",
   },

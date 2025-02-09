@@ -97,7 +97,7 @@ function ProgramsCarousel({ programs }: Props) {
                 <CardMedia
                   component="img"
                   height="160"
-                  image={program.image}
+                  image={"/images/program1.png"}
                   alt={program.name}
                 />
                 <Chip
@@ -119,13 +119,31 @@ function ProgramsCarousel({ programs }: Props) {
                 />
               </Box>
               <CardContent sx={{ pb: "8px !important" }}>
-                <Typography variant="h6" fontWeight="bold">
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                  sx={{
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 2,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    minHeight: "68px",
+                  }}
+                >
                   {program.name}
                 </Typography>
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ mb: 2 }}
+                  sx={{
+                    mb: 2,
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 2,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
                 >
                   {program.description}
                 </Typography>

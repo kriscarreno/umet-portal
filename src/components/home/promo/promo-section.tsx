@@ -13,7 +13,7 @@ type Props = {
 function PromoSection({ promos }: Props) {
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: promos.length > 1,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,

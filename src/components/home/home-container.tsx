@@ -12,9 +12,15 @@ import { getProfessors } from "@/services/professor";
 import { getPrograms } from "@/services/programs";
 import { getTestimonials } from "@/services/testimonials";
 import { getPromos } from "@/services/promos";
+import { SearchParams } from "@/types/params";
 
-async function HomeContainer() {
-  const programs = await getPrograms();
+type Props = {
+  searchParams: SearchParams;
+};
+
+async function HomeContainer({ searchParams }: Props) {
+  const programs = await getPrograms(await searchParams);
+  const programsPopular = await getPrograms(undefined, true);
   const professors = await getProfessors();
   const testimonials = await getTestimonials();
   const promos = await getPromos();
@@ -36,7 +42,7 @@ async function HomeContainer() {
       <Brands />
       <CarreersSection programs={programs.data || []} />
       <InfoBanner2 />
-      <TopProgramsContainer programs={programs.data || []} />
+      <TopProgramsContainer programs={programsPopular.data || []} />
       <ProfessorCarousel professors={professors.data || []} />
       <TestimonialCarousel testimonials={testimonials.data || []} />
     </Box>

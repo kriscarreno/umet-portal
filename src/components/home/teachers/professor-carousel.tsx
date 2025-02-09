@@ -106,7 +106,7 @@ const ProfessorCarousel = ({ professors }: Props) => {
               <CardMedia
                 component="img"
                 height="160"
-                image={professor.image}
+                image={"/images/img2.jpg"}
                 alt={professor.first_name}
               />
               <CardContent
